@@ -3,30 +3,24 @@ from django.db import models
 
 # Create your models here.
 class Escenario(models.Model):
-
     TIPO_ESCENARIO = (
         ('O', 'Operativo'),
         ('A', 'Academico'),
-        ('D' , 'Deportivo'),
-        ('C' ,'Civico'),
+        ('D', 'Deportivo'),
+        ('C', 'Civico'),
         ('P', 'Pasillos'),
-        ('R' ,'Recreativo'),
-
+        ('R', 'Recreativo'),
     )
 
     ESTADO_ESCENARIO = (
-        ('O' , 'Ocupado'),
-        ('D' ,'Disponible'),
-
+        ('O', 'Ocupado'),
+        ('D', 'Disponible'),
     )
 
     nombre_escenario = models.CharField(max_length=200)
-    tipo_escenario=models.CharField(max_length=1, choices= TIPO_ESCENARIO, default=' Default Value')
+    tipo_escenario=models.CharField(max_length=1, choices=TIPO_ESCENARIO, default='Default Value')
     ubicacion= models.CharField(max_length=250)
-    imagen=models.ImageField(upload_to='escenarios',default=' Default Value')#falta algo
-    estado=models.CharField(max_length=1, choices=ESTADO_ESCENARIO, default='Default Value')
-
-
+    estado=models.CharField(max_length=1, choices=ESTADO_ESCENARIO, default=ESTADO_ESCENARIO[1][1])
 
     def __str__(self):
         return self.nombre_escenario
@@ -106,14 +100,3 @@ class Comentario(models.Model):
 
         def _unicode_(self):
             return " $% $%" %(self.user.username, self.evento.nombre_evento)
-
-
-
-
-
-
-
-
-
-
-

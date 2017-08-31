@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'reserva',
-    'user',
     'social_django',
 ]
 
@@ -75,13 +74,12 @@ WSGI_APPLICATION = 'ReservaEscenario.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': 'sistemaReserva  ',
-        'USER': 'root',
-        'PASSWORD': 'carolina',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'sistema_reservas_escenarios',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': 3306
-
+        'PORT': ''
     }
 }
 
